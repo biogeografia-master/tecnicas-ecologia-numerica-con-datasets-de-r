@@ -36,11 +36,26 @@ if (!all(has_pkg)) {
 sapply(pkg_needed, function(x) library(x, character.only = T))
 ```
 
+```{r, include=F}
+output_format <- knitr::opts_knit$get("rmarkdown.pandoc.to")
+repo_url <- system("git config --get remote.origin.url", intern = TRUE)
+repo_name <- sub(".git$", "", basename(repo_url))
+org_name <- basename(dirname(repo_url))
+rmd_filename <- tools::file_path_sans_ext(basename(knitr::current_input()))
+github_pages_url <- paste0("https://", org_name, ".github.io/", repo_name, "/", rmd_filename, ".html")
+```
+
+```{r, results='asis', echo=F}
+if (grepl('gfm', output_format)) {
+  cat('Versión HTML (quizá más legible), [aquí](', github_pages_url, ')\n', sep = '')
+} else if (output_format == 'latex') {
+  cat('Versión HTML (quizá más legible), [aquí](', github_pages_url, ')\n', sep = '')
+}
+```
+
 # Fecha/hora de entrega
 
 **Ver portal de la asignatura**
-
-
 
 # Introducción
 
@@ -71,7 +86,7 @@ El cuaderno está diseñado para **ejecución reproducible** (semillas fijadas, 
 
 # Cómo usar estos ejercicios
 
-* Cada **ejercicio** está pensado para realizarse en **60 minutos**, con objetivos, dataset, pasos y preguntas. **Elige uno y anúncialo en el foro**. **IMPORTANTE** Te desaconsejo elegir por longitud de código y texto, pues los ejercicios que tienen menos código, son normalmente los más complicados.
+* Cada **ejercicio** está pensado para realizarse en **30 minutos**, con objetivos, dataset, pasos y preguntas. **¡¡Toma nota!!: elige DOS ejercicios y anúncialos en el foro**. **IMPORTANTE** Te desaconsejo elegir por longitud de código y texto, pues los ejercicios que tienen menos código, son normalmente los más complicados.
 
 * Las secciones incluyen **código ejecutable** y **tareas** de interpretación. El código ejecutable, lógicamente, debe ejecutarse para comprobar que funciona, y para familiarizarse con la sintaxis.
 

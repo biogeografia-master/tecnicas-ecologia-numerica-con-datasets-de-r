@@ -43,6 +43,9 @@ Biogeografía (GEO-131)
   *introducción
   compacta*](#ejercicio-17--sdm-modelos-de-distribución-de-especies--introducción-compacta)
 
+Versión HTML (quizá más legible),
+[aquí](https://biogeografia-master.github.io/tecnicas-ecologia-numerica-con-datasets-de-r/README.html)
+
 # Fecha/hora de entrega
 
 **Ver portal de la asignatura**
@@ -123,11 +126,11 @@ longitud del código.
 
 # Cómo usar estos ejercicios
 
-- Cada **ejercicio** está pensado para realizarse en **60 minutos**, con
-  objetivos, dataset, pasos y preguntas. **Elige uno y anúncialo en el
-  foro**. **IMPORTANTE** Te desaconsejo elegir por longitud de código y
-  texto, pues los ejercicios que tienen menos código, son normalmente
-  los más complicados.
+- Cada **ejercicio** está pensado para realizarse en **30 minutos**, con
+  objetivos, dataset, pasos y preguntas. **¡¡Toma nota!!: elige DOS
+  ejercicios y anúncialos en el foro**. **IMPORTANTE** Te desaconsejo
+  elegir por longitud de código y texto, pues los ejercicios que tienen
+  menos código, son normalmente los más complicados.
 
 - Las secciones incluyen **código ejecutable** y **tareas** de
   interpretación. El código ejecutable, lógicamente, debe ejecutarse
@@ -222,13 +225,13 @@ table(dune.env$Management)
 boxplot(A1 ~ Moisture, data=dune.env, main="A1 por humedad")
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
 
 ``` r
 boxplot(A1 ~ Management, data=dune.env, main="A1 por Manejo")
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-2-2.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-4-2.png)<!-- -->
 
 2.  **Diversidad alfa** (Shannon/Simpson) y **riqueza** por sitio:
 
@@ -239,7 +242,7 @@ rich   <- specnumber(dune)
 plot(div_sh, type="h", main="Shannon por sitio", xlab="Sitio", ylab="H'")
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
 3.  **Distancias Bray–Curtis** y **clúster UPGMA** (average):
 
@@ -249,7 +252,7 @@ clu  <- hclust(d_bc, method="average")
 plot(clu, main="Dendrograma (Bray–Curtis + UPGMA)")
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
 **Mandato**
 
@@ -285,7 +288,7 @@ par(mfrow=c(1,2)); plot(hclust(d_raw), main="Clúster (Bray, crudo)")
 plot(hclust(d_hel), main="Clúster (Euclídea, Hellinger)"); par(mfrow=c(1,1))
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
 
 ``` r
 # Modo R: correlaciones entre variables ambientales
@@ -455,7 +458,7 @@ ef
 plot(ef, col="red")
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
 
 **Mandato**
 
@@ -484,7 +487,7 @@ pca_env <- rda(scale(varechem))
 plot(pca_env, main="PCA de variables ambientales (escaladas)")
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
 
 ``` r
 # CA en especies (adecuado para conteos/distribuciones sesgadas)
@@ -492,7 +495,7 @@ ca_sp <- cca(varespec)  # CA clásica
 plot(ca_sp, main="CA de comunidades (varespec)")
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-8-2.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-10-2.png)<!-- -->
 
 **Mandato**
 
@@ -588,7 +591,7 @@ Rsq <- RsquareAdj(rda_mod); Rsq
 plot(rda_mod, main="RDA (Hellinger) ~ Al + P + K + pH")
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
 
 **Mandato**
 
@@ -651,7 +654,7 @@ vpart
 plot(vpart, bg=c("steelblue","orange"), Xnames=c("Ambiente","Espacio"))
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
 
 **Mandato**
 
@@ -719,7 +722,7 @@ anova(bd); permutest(bd)
 plot(bd, main="Dispersión multivariante por manejo")
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-13-1.png)<!-- -->
 
 **Mandato**
 
@@ -808,13 +811,13 @@ plot(spec_acc, ci.type="poly", col="blue", lwd=2, ci.lty=0, ci.col=adjustcolor("
      main="Curva de acumulación de especies (BCI)")
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-13-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-15-1.png)<!-- -->
 
 ``` r
 rarecurve(BCI, step=20, sample=min(rowSums(BCI)), col="grey", label=FALSE)
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-13-2.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-15-2.png)<!-- -->
 
 **Mandato**
 
@@ -904,7 +907,7 @@ pr <- procrustes(X, Y, symmetric = TRUE)
 plot(pr, main = "Procrustes: NMDS (especies) vs PCoA Gower (ambiente)")
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-14-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-16-1.png)<!-- -->
 
 ``` r
 ## 5) PROTEST (prueba de concordancia)
@@ -952,7 +955,7 @@ sil_scores <- sapply(2:8, function(k){
 plot(2:8, sil_scores, type="b", xlab="k", ylab="Ancho medio de silueta")
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-15-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-17-1.png)<!-- -->
 
 ``` r
 best_k <- which.max(sil_scores) + 1; best_k
@@ -1015,7 +1018,7 @@ anova(cca_mod); anova(cca_mod, by="term", permutations=999)
 plot(cca_mod, main="CCA: varespec ~ Al + P + K + pH")
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-16-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-18-1.png)<!-- -->
 
 **Mandato**
 
@@ -1068,7 +1071,7 @@ anova(db); anova(db, by="terms", permutations=999)
 plot(db, main="db-RDA: Management | Moisture (Bray)")
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-17-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-19-1.png)<!-- -->
 
 **Mandato**
 
@@ -1176,7 +1179,7 @@ hist(as.vector(d_jac),
      xlab="d_J")
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-19-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-21-1.png)<!-- -->
 
 ``` r
 # ---- Partición: turnover vs nestedness ----
@@ -1637,7 +1640,7 @@ if (ok_iNEXT && ok_SpadeR && ok_ggplot) {
 }
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-21-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-23-1.png)<!-- -->
 
     #>      Unidad S_obs S_chao1 S_chao1_bc S_ichao1
     #> 1 BCI_total   225 238.884    237.214  242.169
@@ -1776,7 +1779,7 @@ if (exists("estimacion_riqueza_chao") && ok_iNEXT && ok_SpadeR) {
     #> 
     #> $P1$no_asintoticos_rarefaccion_extrapolacion_grafico
 
-![](README_files/figure-gfm/unnamed-chunk-22-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-24-1.png)<!-- -->
 
     #> 
     #> 
@@ -1889,7 +1892,7 @@ if (exists("estimacion_riqueza_chao") && ok_iNEXT && ok_SpadeR) {
     #> 
     #> $P10$no_asintoticos_rarefaccion_extrapolacion_grafico
 
-![](README_files/figure-gfm/unnamed-chunk-22-2.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-24-2.png)<!-- -->
 
     #> 
     #> 
@@ -2002,7 +2005,7 @@ if (exists("estimacion_riqueza_chao") && ok_iNEXT && ok_SpadeR) {
     #> 
     #> $P20$no_asintoticos_rarefaccion_extrapolacion_grafico
 
-![](README_files/figure-gfm/unnamed-chunk-22-3.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-24-3.png)<!-- -->
 
     #> 
     #> 
@@ -2115,7 +2118,7 @@ if (exists("estimacion_riqueza_chao") && ok_iNEXT && ok_SpadeR) {
     #> 
     #> $P30$no_asintoticos_rarefaccion_extrapolacion_grafico
 
-![](README_files/figure-gfm/unnamed-chunk-22-4.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-24-4.png)<!-- -->
 
     #> 
     #> 
@@ -2228,7 +2231,7 @@ if (exists("estimacion_riqueza_chao") && ok_iNEXT && ok_SpadeR) {
     #> 
     #> $P40$no_asintoticos_rarefaccion_extrapolacion_grafico
 
-![](README_files/figure-gfm/unnamed-chunk-22-5.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-24-5.png)<!-- -->
 
 **Mandato**
 
@@ -2338,10 +2341,10 @@ Residual deviance: 6.8467e-07 on 152 degrees of freedom AIC: 6
 
 Number of Fisher Scoring iterations: 25
 
-![](README_files/figure-gfm/unnamed-chunk-23-1.png)<!-- -->class :
+![](README_files/figure-gfm/unnamed-chunk-25-1.png)<!-- -->class :
 ModelEvaluation n presences : 22 n absences : 25 AUC : 1 cor : 1 max
 TPR+TNR at : 0.9999
-![](README_files/figure-gfm/unnamed-chunk-23-2.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-25-2.png)<!-- -->
 
 **Sugerencias de extensión (si hay tiempo/recursos).**
 
