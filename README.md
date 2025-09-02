@@ -1,7 +1,7 @@
 Técnicas de ecología numérica con *datasets* de R
 ================
 Biogeografía (GEO-131)
-2025-08-30
+2025-09-02
 
 - [Fecha/hora de entrega](#fechahora-de-entrega)
 - [Introducción](#introducción)
@@ -76,7 +76,7 @@ influyen **transformaciones**, **distancias**, **diseño de muestreo** y
 **escala espacial** en las conclusiones.
 
 El cuaderno está diseñado para **ejecución reproducible** (semillas
-fijadas, bloques autocontenidos) y para que puedas **elegir 1 de 17**
+fijadas, bloques autocontenidos) y para que puedas **elegir 2 de 17**
 según tus intereses: comparar **modo Q vs. R**, estimar la **riqueza
 esperada** con **Chao/iNEXT**, descomponer la **beta-diversidad** en
 **recambio** y **anidamiento**, o construir un **SDM** introductorio con
