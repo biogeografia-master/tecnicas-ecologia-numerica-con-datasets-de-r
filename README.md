@@ -1,47 +1,98 @@
 Técnicas de ecología numérica con *datasets* de R
 ================
 Biogeografía (GEO-131)
-2025-09-02
+2026-01-27
 
 - [Fecha/hora de entrega](#fechahora-de-entrega)
 - [Introducción](#introducción)
-- [Objetivos](#objetivos)
-- [Cómo usar estos ejercicios](#cómo-usar-estos-ejercicios)
+- [Qué debes producir (entregables)](#qué-debes-producir-entregables)
+  - [Entregable 1: Manuscrito reproducible
+    (obligatorio)](#entregable-1-manuscrito-reproducible-obligatorio)
+  - [Entregable 2: Presentación oral
+    (obligatorio)](#entregable-2-presentación-oral-obligatorio)
+- [Cómo se organiza la práctica (ciclo estándar + entregas
+  parciales)](#cómo-se-organiza-la-práctica-ciclo-estándar--entregas-parciales)
+  - [Día 1 — Planteamiento + preguntas + datos (entrega parcial
+    1)](#día-1--planteamiento--preguntas--datos-entrega-parcial-1)
+  - [Día 2 — Métodos + análisis preliminar (entrega parcial
+    2)](#día-2--métodos--análisis-preliminar-entrega-parcial-2)
+  - [Día 3 — Resultados + discusión + diapositivas (entrega parcial
+    3)](#día-3--resultados--discusión--diapositivas-entrega-parcial-3)
+  - [Día 4 — Presentación, defensa y
+    evaluación](#día-4--presentación-defensa-y-evaluación)
+- [Qué debes elegir (ejercicio)](#qué-debes-elegir-ejercicio)
+- [Cómo usar los ejercicios (reglas del
+  juego)](#cómo-usar-los-ejercicios-reglas-del-juego)
 - [Ejercicio 01 · EDA + diversidad + clúster
   (dune)](#ejercicio-01--eda--diversidad--clúster-dune)
+  - [**Dataset.**](#dataset)
+  - [**Código de ayuda**](#código-de-ayuda)
+  - [**Ideas de ayuda**](#ideas-de-ayuda)
 - [Ejercicio 02 · Modos Q/R y paradoja de
   Orlóci](#ejercicio-02--modos-qr-y-paradoja-de-orlóci)
+  - [Dataset y código de ayuda](#dataset-y-código-de-ayuda)
+  - [**Ideas de ayuda**](#ideas-de-ayuda-1)
 - [Ejercicio 03 · NMDS + envfit
   (dune)](#ejercicio-03--nmds--envfit-dune)
+  - [Dataset y código de ayuda](#dataset-y-código-de-ayuda-1)
+  - [**Ideas de ayuda**](#ideas-de-ayuda-2)
 - [Ejercicio 04 · PCA vs CA
   (varechem/varespec)](#ejercicio-04--pca-vs-ca-varechemvarespec)
+  - [Dataset y código de ayuda](#dataset-y-código-de-ayuda-2)
+  - [**Ideas de ayuda**](#ideas-de-ayuda-3)
 - [Ejercicio 05 · RDA (Hellinger) y varianza
   explicada](#ejercicio-05--rda-hellinger-y-varianza-explicada)
+  - [Dataset y código de ayuda](#dataset-y-código-de-ayuda-3)
+  - [**Ideas de ayuda**](#ideas-de-ayuda-4)
 - [Ejercicio 06 · Partición de varianza ambiente vs espacio
   (mite)](#ejercicio-06--partición-de-varianza-ambiente-vs-espacio-mite)
+  - [Dataset y código de ayuda](#dataset-y-código-de-ayuda-4)
+  - [**Ideas de ayuda**](#ideas-de-ayuda-5)
 - [Ejercicio 07 · PERMANOVA + betadisper
   (dune)](#ejercicio-07--permanova--betadisper-dune)
+  - [Dataset y código de ayuda](#dataset-y-código-de-ayuda-5)
+  - [**Ideas de ayuda**](#ideas-de-ayuda-6)
 - [Ejercicio 08 · Especies
   indicadoras](#ejercicio-08--especies-indicadoras)
+  - [Dataset y código de ayuda](#dataset-y-código-de-ayuda-6)
+  - [**Ideas de ayuda**](#ideas-de-ayuda-7)
 - [Ejercicio 09 · Acumulación y rarefacción
   (BCI)](#ejercicio-09--acumulación-y-rarefacción-bci)
+  - [Dataset y código de ayuda](#dataset-y-código-de-ayuda-7)
+  - [**Ideas de ayuda**](#ideas-de-ayuda-8)
 - [Ejercicio 10 · Procrustes: comparar
   ordenaciones](#ejercicio-10--procrustes-comparar-ordenaciones)
+  - [Dataset y código de ayuda](#dataset-y-código-de-ayuda-8)
+  - [\*\*Ideas de ayuda](#ideas-de-ayuda-9)
 - [Ejercicio 11 · Elegir k con
   silhouette](#ejercicio-11--elegir-k-con-silhouette)
+  - [Dataset y código de ayuda](#dataset-y-código-de-ayuda-9)
+  - [**Ideas de ayuda**](#ideas-de-ayuda-10)
 - [Ejercicio 12 · CCA (varespec ~
   varechem)](#ejercicio-12--cca-varespec--varechem)
+  - [Dataset y código de ayuda](#dataset-y-código-de-ayuda-10)
+  - [**Ideas de ayuda**](#ideas-de-ayuda-11)
 - [Ejercicio 13 · db-RDA / capscale (distancia no
   euclídea)](#ejercicio-13--db-rda--capscale-distancia-no-euclídea)
+  - [Dataset y código de ayuda](#dataset-y-código-de-ayuda-11)
+  - [**Ideas de ayuda**](#ideas-de-ayuda-12)
 - [Ejercicio 14 · Tendencia espacial (polinomios) vs MEM/PCNM
   (opcional)](#ejercicio-14--tendencia-espacial-polinomios-vs-mempcnm-opcional)
+  - [Dataset y código de ayuda](#dataset-y-código-de-ayuda-12)
+  - [**Ideas de ayuda**](#ideas-de-ayuda-13)
 - [Ejercicio 15 · Diversidad beta (índices y
   partición)](#ejercicio-15--diversidad-beta-índices-y-partición)
+  - [Dataset y código de ayuda](#dataset-y-código-de-ayuda-13)
+  - [**Ideas de ayuda**](#ideas-de-ayuda-14)
 - [Ejercicio 16 · Diversidad alfa con estimadores de Chao (SpadeR,
   iNEXT)](#ejercicio-16--diversidad-alfa-con-estimadores-de-chao-spader-inext)
+  - [Dataset y código de ayuda](#dataset-y-código-de-ayuda-14)
+  - [**Ideas de ayuda**](#ideas-de-ayuda-15)
 - [Ejercicio 17 · SDM (Modelos de Distribución de Especies) —
   *introducción
   compacta*](#ejercicio-17--sdm-modelos-de-distribución-de-especies--introducción-compacta)
+  - [Dataset y código de ayuda](#dataset-y-código-de-ayuda-15)
+  - [**Ideas de ayuda**](#ideas-de-ayuda-16)
 
 Versión HTML (quizá más legible),
 [aquí](https://biogeografia-master.github.io/tecnicas-ecologia-numerica-con-datasets-de-r/README.html)
@@ -52,110 +103,202 @@ Versión HTML (quizá más legible),
 
 # Introducción
 
-Este cuaderno reúne **17 ejercicios prácticos** para explorar, con datos
-reales de R, un conjunto de **técnicas fundamentales de ecología
-numérica y biogeografía**: desde el **análisis exploratorio de datos
-(AED)** y las **medidas de diversidad** (alfa, beta), pasando por
-**ordenaciones** (PCA, CA, NMDS, CCA, db-RDA), **agrupamientos** y
-**pruebas permutacionales**, hasta **modelos de distribución de especies
-(SDM)** y **estimadores modernos de riqueza** (Chao, iNEXT). El hilo
-conductor es doble: (i) **formular preguntas ecológico-biogeográficas
-claras** y (ii) **elegir y aplicar** la técnica apropiada con sus
-**supuestos, limitaciones e interpretación**.
+Esta práctica forma parte del enfoque central de la asignatura:
+**aprender biogeografía y ecología numérica resolviendo problemas reales
+y comunicando resultados** en formato científico.
 
-Todos los ejercicios usan *datasets* clásicos (p. ej., `dune`,
-`varespec/varechem`, `BCI`, `mite`), lo que facilita contrastar
-resultados con la literatura y con ayuda de IA (siempre **verificando**
-contra la documentación del paquete; por ejemplo, consulta `?dune`).
-Cada actividad termina con un **mandato de interpretación**,
-**formulación de preguntas** y **reflexión** sobre **implicaciones
-ecológicas, biogeográficas y, cuando proceda, de conservación**. Más que
-“correr código”, el objetivo es **razonar**: qué mide cada índice, qué
-representa cada eje, qué hipótesis subyacen a cada método, y cómo
-influyen **transformaciones**, **distancias**, **diseño de muestreo** y
-**escala espacial** en las conclusiones.
+A diferencia de un cuaderno de “ejercicios sueltos”, aquí trabajarás
+bajo un esquema de **práctica integradora (taller + defensa)**. Tu tarea
+será **elegir un (1) ejercicio** de los propuestos (de un conjunto más
+amplio disponible en el cuaderno completo) y convertirlo en un
+**problema biogeográfico/ecológico bien formulado** que culmine en dos
+productos:
 
-El cuaderno está diseñado para **ejecución reproducible** (semillas
-fijadas, bloques autocontenidos) y para que puedas **elegir 2 de 17**
-según tus intereses: comparar **modo Q vs. R**, estimar la **riqueza
-esperada** con **Chao/iNEXT**, descomponer la **beta-diversidad** en
-**recambio** y **anidamiento**, o construir un **SDM** introductorio con
-regresión logística como alternativa ligera a MaxEnt/ML. En todos los
-casos se prioriza la **interpretación crítica** por encima de la
-longitud del código.
+1.  Un **manuscrito científico reproducible** (RMarkdown, ejecutable de
+    inicio a fin), y
+2.  Una **presentación oral** (diapositivas, 17 min + 3 min de
+    preguntas).
 
-# Objetivos
+El punto clave es que, aunque solo desarrolles **un ejercicio**, el
+manuscrito deberá **forzar un recorrido amplio por la teoría de la
+unidad**: conceptos, supuestos, decisiones analíticas, interpretación,
+limitaciones y conclusiones. Es decir: **el ejercicio es el caso**, pero
+**la teoría es el mapa** que debes recorrer y evidenciar.
 
-1.  **Vincular preguntas ecológico-biogeográficas con herramientas
-    cuantitativas**, eligiendo medidas de **distancia**,
-    **transformaciones** y **técnicas** acordes a los datos y sus
-    supuestos.
+Se permite realizar la práctica **de forma individual o en grupos de
+dos**. En ambos casos, durante la defensa oral **cada integrante debe
+demostrar dominio completo** del trabajo (datos, decisiones, código,
+resultados e interpretación).
 
-2.  **Aplicar e interpretar** técnicas de **ordenación** (PCA, CA, NMDS,
-    CCA, db-RDA/capscale) y **agrupamiento** (UPGMA, Ward), incluyendo
-    **verificación de supuestos** y lectura de **biplots** y
-    **dendrogramas**.
+> **Tutoría con IA (supervisada):** puedes usar IA generativa para
+> estudiar teoría, depurar código y mejorar redacción técnica, pero
+> debes **verificar y documentar** todo (fuentes, decisiones,
+> supuestos). La evaluación se basa en tu **razonamiento y validación**,
+> no en texto generado.
 
-3.  **Cuantificar diversidad** (alfa, beta) y **particionarla** para
-    inferir **patrones de composición** y **heterogeneidad** entre
-    sitios.
+# Qué debes producir (entregables)
 
-4.  **Estimar riqueza esperada** y **cobertura de muestreo** con
-    **Chao/iNEXT**, interpretando **curvas de
-    rarefacción/extrapolación** y diferencias entre `S_obs` y
-    estimadores (`S_chao1`, `S_chao1_bc`, `S_ichao1`).
+## Entregable 1: Manuscrito reproducible (obligatorio)
 
-5.  **Probar hipótesis** sobre diferencias entre grupos o gradientes
-    mediante **PERMANOVA**, **betadisper** y **pruebas
-    permutacionales**, distinguiendo efectos de **centroides**
-    vs. **dispersión**.
+Tu manuscrito deberá incluir, al menos:
 
-6.  **Analizar estructura espacial** (superficies de tendencia,
-    **MEM/PCNM**) y **partición de varianza** ambiente–espacio,
-    relacionando **procesos** (filtros ambientales, dispersión limitada)
-    y **escalas**.
+- **Título** (informativo; no “Práctica X”).
+- **Introducción**: contexto + qué problema resuelves + por qué importa.
+- **Preguntas / hipótesis** (explícitas).
+- **Datos**: origen del dataset, diseño de muestreo, variables,
+  limitaciones.
+- **Métodos** (declarados y justificadas tus decisiones):
+  - transformaciones,
+  - medidas de distancia,
+  - técnica elegida (ordenación, diversidad, agrupamiento, PERMANOVA,
+    etc.),
+  - supuestos / verificaciones básicas.
+- **Resultados**: tablas/figuras + narrativa.
+- **Discusión**: interpretación conectada con la teoría; qué significa y
+  qué no.
+- **Aporte**: qué aprendimos o qué evidencia generaste (aunque sea
+  pequeña).
+- **Limitaciones**: reales, metodológicas y de datos.
+- **Conclusiones**: defendibles.
+- **Reproducibilidad**: código ejecutable de inicio a fin, sin pasos
+  manuales ocultos.
 
-7.  **Construir un SDM introductorio** (GLM binomial) para generar
-    **mapas de idoneidad**, discutir **evaluación** (p. ej., AUC/ROC),
-    **umbrales** y **riesgos de extrapolación**.
+## Entregable 2: Presentación oral (obligatorio)
 
-8.  **Comunicar resultados**: para cada ejercicio, **interpretar
-    salidas**, **formular al menos dos preguntas** que los resultados
-    permitan abordar y **reflexionar** sobre **implicaciones
-    ecológicas/biogeográficas** y, cuando proceda, **de conservación**.
+- **17 minutos de exposición + 3 minutos de preguntas**.
+- Debe cubrir: problema, datos, método, resultados, interpretación,
+  limitaciones.
+- **Cada integrante** (si trabajan en pareja) debe poder responder
+  preguntas.
 
-# Cómo usar estos ejercicios
+# Cómo se organiza la práctica (ciclo estándar + entregas parciales)
 
-- Cada **ejercicio** está pensado para realizarse en **30 minutos**, con
-  objetivos, dataset, pasos y preguntas. **¡¡Toma nota!!: elige DOS
-  ejercicios y anúncialos en el foro**. **IMPORTANTE** Te desaconsejo
-  elegir por longitud de código y texto, pues los ejercicios que tienen
-  menos código, son normalmente los más complicados.
+La práctica puede ocupar varios días de clase. La regla general es:
 
-- Las secciones incluyen **código ejecutable** y **tareas** de
-  interpretación. El código ejecutable, lógicamente, debe ejecutarse
-  para comprobar que funciona, y para familiarizarse con la sintaxis.
+- **En casa:** avanzas cada apartado del manuscrito (con apoyo de IA si
+  quieres) y vienes al aula con avances concretos y dudas específicas.
+- **En aula:** el tiempo se usa para **taller**, resolución de
+  problemas, validación de reproducibilidad, revisión rápida del
+  razonamiento y preparación/defensa.
 
-- Debes investigar, por tu cuenta y con ayuda de IA, sobre lo siguiente:
+## Día 1 — Planteamiento + preguntas + datos (entrega parcial 1)
 
-  - **Los *datasets* usados, para entender su origen, muestreo, y
-    variables medidas.** Esto es muy importante, porque si no comprendes
-    los datos, muchas preguntas no podrás responderlas. Puedes preguntar
-    a IAs sobre los *datasets*, pues la mayoría son conocidos; eso sí,
-    no aceptes descripciones de la IA sin comprobarlas. Dado que todos
-    los *datasets* usados en estos ejercicios vienen asociados a
-    paquetes de R, también puedes ver sus correspondientes descripciones
-    usando la consola; por ejemplo, para ver la descripción del
-    *dataset* `dune`, basta con ejecutar `help(dune)` o `?dune` en la
-    consola de R.
-  - \*\*Discute limitaciones de los datasets y decisiones analíticas
-    (transformaciones, distancias, métodos).
-  - **Las técnicas empleadas en cada caso, para explicar qué responden,
-    para qué sirven, y sus supuestos.** Investigando para qué sirve la
-    técnica usada en tu ejercicio elegido, podrás detemrinar qué
-    preguntas te ayuda a responder dicha técnica. Investigando sobre los
-    supuestos, sabrás cuándo tus datos cumplen con las condiciones para
-    usar una técnica u otra.
+**En casa (antes de clase):**
+
+- Lee la teoría mínima para entender el tipo de técnica del ejercicio
+  que quieres (p. ej. ordenación vs diversidad).
+- Explora el dataset (ayúdate con `?dataset` / `help(dataset)` y
+  documentación del paquete).
+- Identifica variables, estructura de los datos y limitaciones.
+
+**En aula:**
+
+- Confirmación del ejercicio elegido.
+- Formulación y afinamiento de preguntas / hipótesis.
+- Definición de decisiones iniciales (transformación, distancia,
+  técnica).
+
+**Entrega parcial 1 (al finalizar el día):**
+
+- Título provisional, preguntas/hypótesis, descripción del dataset, y un
+  EDA básico (tablas/plots).
+- Repo actualizado en GitHub (commits visibles).
+
+## Día 2 — Métodos + análisis preliminar (entrega parcial 2)
+
+**En casa (antes de clase):**
+
+- Redacta Métodos en borrador.
+- Implementa el flujo principal del análisis (aunque sea preliminar).
+
+**En aula:**
+
+- Depuración de código.
+- Verificación de supuestos básicos.
+- Validación de que el documento corre “de cero a fin”.
+
+**Entrega parcial 2:**
+
+- Sección Métodos (borrador) + resultados preliminares (al menos 1
+  figura/tabla interpretada).
+
+## Día 3 — Resultados + discusión + diapositivas (entrega parcial 3)
+
+**En casa (antes de clase):**
+
+- Consolida resultados definitivos.
+- Redacta resultados y empieza discusión.
+- Construye diapositivas (borrador).
+
+**En aula:**
+
+- Revisión técnica rápida (coherencia resultados ↔ teoría).
+- Ajuste de narrativa y preparación de defensa.
+
+**Entrega parcial 3:**
+
+- Manuscrito casi completo (faltando pulido) + diapositivas en borrador.
+
+## Día 4 — Presentación, defensa y evaluación
+
+- Presentación oral (**17 + 3**).
+- Defensa pública.
+- **Evaluación en aula con calificación inmediata**.
+
+> Este esquema es flexible: si el ejercicio elegido es más complejo, la
+> práctica puede requerir más días, pero **siempre** habrá entregas
+> parciales y defensa final.
+
+# Qué debes elegir (ejercicio)
+
+En el cuaderno completo existen múltiples ejercicios (ordenaciones,
+diversidad alfa/beta, agrupamientos, PERMANOVA, estimadores de riqueza,
+estructura espacial, SDM introductorio, etc.). Para esta práctica:
+
+- Elige **un (1) ejercicio** (uno solo).
+- No elijas por “poco código”: los ejercicios con menos código suelen
+  exigir más comprensión.
+
+# Cómo usar los ejercicios (reglas del juego)
+
+- Ejecuta e intenta entender el código del ejercicio elegido; luego
+  **adáptalo** a tus preguntas (no lo corras “tal cual”).
+
+- Investiga (con apoyo de IA si quieres) pero **verifica**:
+
+  - origen del dataset, muestreo y variables (`?dune`, `?varespec`,
+    etc.),
+  - supuestos de la técnica,
+  - qué representa cada salida (ejes, distancias, centroides,
+    dispersión, etc.).
+
+- Declara y justifica decisiones analíticas (transformaciones,
+  distancias, parámetros).
+
+- Incluye limitaciones: del dataset y del método.
+
+<!-- # Fecha/hora de entrega -->
+<!-- **Ver portal de la asignatura** -->
+<!-- # Introducción -->
+<!-- Este cuaderno reúne **17 ejercicios prácticos** para explorar, con datos reales de R, un conjunto de **técnicas fundamentales de ecología numérica y biogeografía**: desde el **análisis exploratorio de datos (AED)** y las **medidas de diversidad** (alfa, beta), pasando por **ordenaciones** (PCA, CA, NMDS, CCA, db-RDA), **agrupamientos** y **pruebas permutacionales**, hasta **modelos de distribución de especies (SDM)** y **estimadores modernos de riqueza** (Chao, iNEXT). El hilo conductor es doble: (i) **formular preguntas ecológico-biogeográficas claras** y (ii) **elegir y aplicar** la técnica apropiada con sus **supuestos, limitaciones e interpretación**. -->
+<!-- Todos los ejercicios usan *datasets* clásicos (p. ej., `dune`, `varespec/varechem`, `BCI`, `mite`), lo que facilita contrastar resultados con la literatura y con ayuda de IA (siempre **verificando** contra la documentación del paquete; por ejemplo, consulta `?dune`). Cada actividad termina con un **mandato de interpretación**, **formulación de preguntas** y **reflexión** sobre **implicaciones ecológicas, biogeográficas y, cuando proceda, de conservación**. Más que “correr código”, el objetivo es **razonar**: qué mide cada índice, qué representa cada eje, qué hipótesis subyacen a cada método, y cómo influyen **transformaciones**, **distancias**, **diseño de muestreo** y **escala espacial** en las conclusiones. -->
+<!-- El cuaderno está diseñado para **ejecución reproducible** (semillas fijadas, bloques autocontenidos) y para que puedas **elegir 2 de 17** según tus intereses: comparar **modo Q vs. R**, estimar la **riqueza esperada** con **Chao/iNEXT**, descomponer la **beta-diversidad** en **recambio** y **anidamiento**, o construir un **SDM** introductorio con regresión logística como alternativa ligera a MaxEnt/ML. En todos los casos se prioriza la **interpretación crítica** por encima de la longitud del código. -->
+<!-- # Objetivos -->
+<!-- 1. **Vincular preguntas ecológico-biogeográficas con herramientas cuantitativas**, eligiendo medidas de **distancia**, **transformaciones** y **técnicas** acordes a los datos y sus supuestos. -->
+<!-- 2. **Aplicar e interpretar** técnicas de **ordenación** (PCA, CA, NMDS, CCA, db-RDA/capscale) y **agrupamiento** (UPGMA, Ward), incluyendo **verificación de supuestos** y lectura de **biplots** y **dendrogramas**. -->
+<!-- 3. **Cuantificar diversidad** (alfa, beta) y **particionarla** para inferir **patrones de composición** y **heterogeneidad** entre sitios. -->
+<!-- 4. **Estimar riqueza esperada** y **cobertura de muestreo** con **Chao/iNEXT**, interpretando **curvas de rarefacción/extrapolación** y diferencias entre `S_obs` y estimadores (`S_chao1`, `S_chao1_bc`, `S_ichao1`). -->
+<!-- 5. **Probar hipótesis** sobre diferencias entre grupos o gradientes mediante **PERMANOVA**, **betadisper** y **pruebas permutacionales**, distinguiendo efectos de **centroides** vs. **dispersión**. -->
+<!-- 6. **Analizar estructura espacial** (superficies de tendencia, **MEM/PCNM**) y **partición de varianza** ambiente–espacio, relacionando **procesos** (filtros ambientales, dispersión limitada) y **escalas**. -->
+<!-- 7. **Construir un SDM introductorio** (GLM binomial) para generar **mapas de idoneidad**, discutir **evaluación** (p. ej., AUC/ROC), **umbrales** y **riesgos de extrapolación**. -->
+<!-- 8. **Comunicar resultados**: para cada ejercicio, **interpretar salidas**, **formular al menos dos preguntas** que los resultados permitan abordar y **reflexionar** sobre **implicaciones ecológicas/biogeográficas** y, cuando proceda, **de conservación**. -->
+<!-- # Cómo usar estos ejercicios -->
+<!-- * Cada **ejercicio** está pensado para realizarse en **30 minutos**, con objetivos, dataset, pasos y preguntas. **Elige DOS ejercicios y anúncialos en el foro**. **IMPORTANTE** Te desaconsejo elegir por longitud de código y texto, pues los ejercicios que tienen menos código, son normalmente los más complicados. -->
+<!-- * Las secciones incluyen **código ejecutable** y **tareas** de interpretación. El código ejecutable, lógicamente, debe ejecutarse para comprobar que funciona, y para familiarizarse con la sintaxis. -->
+<!-- * Debes investigar, por tu cuenta y con ayuda de IA, sobre lo siguiente: -->
+<!--   - **Los *datasets* usados, para entender su origen, muestreo, y variables medidas.** Esto es muy importante, porque si no comprendes los datos, muchas preguntas no podrás responderlas. Puedes preguntar a IAs sobre los *datasets*, pues la mayoría son conocidos; eso sí, no aceptes descripciones de la IA sin comprobarlas. Dado que todos los *datasets* usados en estos ejercicios vienen asociados a paquetes de R,  también puedes ver sus correspondientes descripciones usando la consola; por ejemplo, para ver la descripción del *dataset* `dune`, basta con ejecutar `help(dune)` o `?dune` en la consola de R. -->
+<!--   - **Discute limitaciones de los datasets y decisiones analíticas (transformaciones, distancias, métodos). -->
+<!--   - **Las técnicas empleadas en cada caso, para explicar qué responden, para qué sirven, y sus supuestos.** Investigando para qué sirve la técnica usada en tu ejercicio elegido, podrás detemrinar qué preguntas te ayuda a responder dicha técnica. Investigando sobre los supuestos, sabrás cuándo tus datos cumplen con las condiciones para usar una técnica u otra. -->
 
 ------------------------------------------------------------------------
 
@@ -165,7 +308,7 @@ longitud del código.
 jerárquico (UPGMA) con `dune` (comunidades de plantas) y `dune.env`
 (ambiente).
 
-**Dataset.**
+## **Dataset.**
 
 ``` r
 library(vegan)
@@ -197,7 +340,7 @@ head(dune[,1:6]); head(dune.env)
     #> 5 6.3        1         HF Hayfield      2
     #> 6 4.3        1         HF Haypastu      2
 
-**Pasos.**
+## **Código de ayuda**
 
 1.  **EDA** de variables ambientales:
 
@@ -254,7 +397,7 @@ plot(clu, main="Dendrograma (Bray–Curtis + UPGMA)")
 
 ![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
-**Mandato**
+## **Ideas de ayuda**
 
 0.  **Preguntas guía para responder.** ¿Cuántos grupos cortarías? ¿Se
     asocian con `Management`, `Moisture` o `A1`?
@@ -277,6 +420,8 @@ plot(clu, main="Dendrograma (Bray–Curtis + UPGMA)")
 **Objetivo.** Comparar **modo Q** (sitios) vs **modo R** (variables), y
 mostrar cómo **transformaciones** y **medidas** cambian conclusiones
 (paradoja de Orlóci).
+
+## Dataset y código de ayuda
 
 ``` r
 data(varespec); data(varechem)
@@ -327,7 +472,7 @@ round(cor_mat, 2)
     #> Humdepth     0.59     1.00 -0.72
     #> pH          -0.53    -0.72  1.00
 
-**Mandato**
+## **Ideas de ayuda**
 
 0.  **Describe diferencias entre dendrogramas y justifica elección** de
     transformación/distancia.\*\*
@@ -348,6 +493,8 @@ round(cor_mat, 2)
 
 **Objetivo.** Realizar **NMDS** (Bray) y ajustar vectores ambientales
 (`envfit`).
+
+## Dataset y código de ayuda
 
 ``` r
 set.seed(123)
@@ -460,7 +607,7 @@ plot(ef, col="red")
 
 ![](README_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
 
-**Mandato**
+## **Ideas de ayuda**
 
 0.  **Preguntas guía para responder.** ¿Qué variables se alinean con el
     gradiente principal? ¿Cómo interpretar signos y longitudes de
@@ -481,6 +628,8 @@ plot(ef, col="red")
 **Objetivo.** Comparar **PCA** sobre ambiente (escalado) y **CA** sobre
 especies.
 
+## Dataset y código de ayuda
+
 ``` r
 # PCA en ambiente
 pca_env <- rda(scale(varechem))
@@ -497,7 +646,7 @@ plot(ca_sp, main="CA de comunidades (varespec)")
 
 ![](README_files/figure-gfm/unnamed-chunk-10-2.png)<!-- -->
 
-**Mandato**
+## **Ideas de ayuda**
 
 0.  **Contrasta supuestos de PCA (lineal) vs CA (chi-cuadrado) y cuándo
     usar cada uno**.
@@ -518,6 +667,8 @@ plot(ca_sp, main="CA de comunidades (varespec)")
 
 **Objetivo.** Modelar composición (Hellinger) con RDA y cuantificar
 varianza explicada.
+
+## Dataset y código de ayuda
 
 ``` r
 Y <- decostand(varespec, "hellinger")
@@ -593,7 +744,7 @@ plot(rda_mod, main="RDA (Hellinger) ~ Al + P + K + pH")
 
 ![](README_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
 
-**Mandato**
+## **Ideas de ayuda**
 
 0.  **Preguntas guía para responder.** ¿Cuánta varianza ajustada explica
     el modelo? ¿Qué variables son más importantes?
@@ -612,6 +763,8 @@ plot(rda_mod, main="RDA (Hellinger) ~ Al + P + K + pH")
 
 **Objetivo.** Separar efectos **ambientales** y **espaciales** usando
 `varpart` con coordenadas polinomiales (superficies de tendencia).
+
+## Dataset y código de ayuda
 
 ``` r
 data(mite); data(mite.env); data(mite.xy)
@@ -656,7 +809,7 @@ plot(vpart, bg=c("steelblue","orange"), Xnames=c("Ambiente","Espacio"))
 
 ![](README_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
 
-**Mandato**
+## **Ideas de ayuda**
 
 0.  Interpreta los **componentes**: solo ambiente, solo espacio,
     compartido, residuo.
@@ -676,6 +829,8 @@ plot(vpart, bg=c("steelblue","orange"), Xnames=c("Ambiente","Espacio"))
 
 **Objetivo.** Probar diferencias de **composición** entre niveles de
 `Management` y verificar **homogeneidad de dispersión**.
+
+## Dataset y código de ayuda
 
 ``` r
 d <- vegdist(dune, "bray")
@@ -724,7 +879,7 @@ plot(bd, main="Dispersión multivariante por manejo")
 
 ![](README_files/figure-gfm/unnamed-chunk-13-1.png)<!-- -->
 
-**Mandato**
+## **Ideas de ayuda**
 
 0.  **Preguntas guía para responder.** ¿Las diferencias entre grupos son
     por **centroides** (composición) o por **dispersión**
@@ -744,6 +899,8 @@ plot(bd, main="Dispersión multivariante por manejo")
 # Ejercicio 08 · Especies indicadoras
 
 **Objetivo.** Identificar **especies indicadoras** de grupos de sitios.
+
+## Dataset y código de ayuda
 
 ``` r
 ok_ind <- requireNamespace("indicspecies", quietly = TRUE)
@@ -785,7 +942,7 @@ Group 1+3 \#sps. 1 A B stat p.value
 Poaprat 1.000 0.875 0.935 0.006 \*\* — Signif. codes: 0 ‘***’ 0.001 ’**’
 0.01 ’*’ 0.05 ‘.’ 0.1 ’ ’ 1 NULL
 
-**Mandato**
+## **Ideas de ayuda**
 
 0.  **Reporta especies indicadoras (valor de $p$).**
 
@@ -804,6 +961,8 @@ Poaprat 1.000 0.875 0.935 0.006 \*\* — Signif. codes: 0 ‘***’ 0.001 ’**�
 **Objetivo.** Evaluar riqueza con **curvas de acumulación** y
 **rarefacción**.
 
+## Dataset y código de ayuda
+
 ``` r
 data(BCI)  # 50 ha, conteos por especie en parcelas
 spec_acc <- specaccum(BCI, method="random")
@@ -819,7 +978,7 @@ rarecurve(BCI, step=20, sample=min(rowSums(BCI)), col="grey", label=FALSE)
 
 ![](README_files/figure-gfm/unnamed-chunk-15-2.png)<!-- -->
 
-**Mandato**
+## **Ideas de ayuda**
 
 0.  **Preguntas guía para responder.** ¿La curva tiende a
     **saturación**? ¿Qué implica para el muestreo?
@@ -838,6 +997,8 @@ rarecurve(BCI, step=20, sample=min(rowSums(BCI)), col="grey", label=FALSE)
 
 **Objetivo.** Comparar configuraciones de puntos con **rotación de
 Procrustes** y prueba `protest`.
+
+## Dataset y código de ayuda
 
 ``` r
 # Comparar NMDS de especies vs PCoA de ambiente (Gower)
@@ -925,7 +1086,7 @@ protest(X, Y, permutations = 999)
     #> Permutation: free
     #> Number of permutations: 999
 
-**Mandato**
+## \*\*Ideas de ayuda
 
 0.  **Interpreta longitudes de segmentos y valor de la prueba**.
 
@@ -945,6 +1106,8 @@ protest(X, Y, permutations = 999)
 **Objetivo.** Seleccionar número de **clústers** con **ancho de
 silueta**.
 
+## Dataset y código de ayuda
+
 ``` r
 library(cluster)
 d <- vegdist(varespec, "bray")
@@ -963,7 +1126,7 @@ best_k <- which.max(sil_scores) + 1; best_k
 
     #> [1] 3
 
-**Mandato**
+## **Ideas de ayuda**
 
 0.  **Preguntas guía para responder.** ¿Qué k maximiza la coherencia?
     Visualiza el dendrograma con ese corte.
@@ -982,6 +1145,8 @@ best_k <- which.max(sil_scores) + 1; best_k
 
 **Objetivo.** Relacionar composición con ambiente con **CCA** (respuesta
 unimodal).
+
+## Dataset y código de ayuda
 
 ``` r
 cca_mod <- cca(varespec ~ Al + P + K + pH, data=varechem)
@@ -1020,7 +1185,7 @@ plot(cca_mod, main="CCA: varespec ~ Al + P + K + pH")
 
 ![](README_files/figure-gfm/unnamed-chunk-18-1.png)<!-- -->
 
-**Mandato**
+## **Ideas de ayuda**
 
 0.  **Pregunta guía para responder.** ¿Qué variables explican ejes
     canónicos significativos?
@@ -1038,6 +1203,8 @@ plot(cca_mod, main="CCA: varespec ~ Al + P + K + pH")
 # Ejercicio 13 · db-RDA / capscale (distancia no euclídea)
 
 **Objetivo.** Usar **capscale** (db-RDA) con Bray–Curtis y covariables.
+
+## Dataset y código de ayuda
 
 ``` r
 db <- capscale(dune ~ Management + Condition(Moisture), data=dune.env, distance="bray")
@@ -1073,7 +1240,7 @@ plot(db, main="db-RDA: Management | Moisture (Bray)")
 
 ![](README_files/figure-gfm/unnamed-chunk-19-1.png)<!-- -->
 
-**Mandato**
+## **Ideas de ayuda**
 
 0.  **Pregunta guía para responder.** ¿Qué aporta condicionar por
     `Moisture`?
@@ -1092,6 +1259,8 @@ plot(db, main="db-RDA: Management | Moisture (Bray)")
 
 **Objetivo.** Contrastar **superficies de tendencia** con
 **eigenvectores espaciales** (si está `adespatial`).
+
+## Dataset y código de ayuda
 
 ``` r
 library(vegan)
@@ -1124,7 +1293,7 @@ cat("Modelo polinómico ajustado.\n")
 
 Modelo polinómico ajustado.
 
-**Mandato**
+## **Ideas de ayuda**
 
 0.  **Compara varianza explicada por tendencia vs MEM.**
 
@@ -1142,6 +1311,8 @@ Modelo polinómico ajustado.
 
 **Objetivo.** Calcular **beta-diversidad** con distintos índices y
 discutir su **partición** en componentes de recambio y anidamiento.
+
+## Dataset y código de ayuda
 
 ``` r
 library(vegan)
@@ -1503,9 +1674,7 @@ if (requireNamespace("adespatial", quietly = TRUE)) {
     #>         16         28         13 
     #> 0.03432918 0.04303932 0.03844234
 
-------------------------------------------------------------------------
-
-**Mandato**
+## **Ideas de ayuda**
 
 0.  **Explica** cuándo preferir índices asimétricos (ignoran dobles
     ceros) y cómo cambia la historia con abundancias
@@ -1532,6 +1701,8 @@ if (requireNamespace("adespatial", quietly = TRUE)) {
 **curvas de rarefacción/extrapolación** usando **SpadeR** e **iNEXT**
 con el dataset **BCI**. Se muestra también cómo invocar la función
 `estimacion_riqueza_chao` desde tu repositorio (opcional).
+
+## Dataset y código de ayuda
 
 ``` r
 # Paquetes necesarios (bloques opcionales protegidos)
@@ -2233,7 +2404,7 @@ if (exists("estimacion_riqueza_chao") && ok_iNEXT && ok_SpadeR) {
 
 ![](README_files/figure-gfm/unnamed-chunk-24-5.png)<!-- -->
 
-**Mandato**
+## **Ideas de ayuda**
 
 0.  **Compara** la **riqueza observada** (`S_obs`) con la **riqueza
     esperada** (`S_chao1`, `S_chao1_bc`, `S_ichao1`) y con las **curvas
@@ -2264,6 +2435,8 @@ if (exists("estimacion_riqueza_chao") && ok_iNEXT && ok_SpadeR) {
 (presencia/ausencia) y variables ambientales para generar un **mapa de
 idoneidad**. Alternativa ligera a MaxEnt/ML para aula. *(Bloque
 protegido: se omite si faltan paquetes espaciales.)*
+
+## Dataset y código de ayuda
 
 **Datos.** Usamos `meuse` (paquete `sp`) como “paisaje” con dos
 variables (zinc, cobre). Simulamos presencias de una “especie” asociada
@@ -2354,7 +2527,7 @@ TPR+TNR at : 0.9999
 - Si cuentan con `maxent.jar`, explorar `dismo::maxent` con el mismo
   stack ambiental.
 
-**Mandato final.**
+## **Ideas de ayuda**
 
 1.  **Interpreta** el mapa de idoneidad y los coeficientes del GLM
     (signo, magnitud, significancia).
@@ -2396,7 +2569,7 @@ sessionInfo()
     #> 
     #> other attached packages:
     #>  [1] RColorBrewer_1.1-3  betapart_1.6        devtools_2.4.5     
-    #>  [4] usethis_2.2.3       ggplot2_3.5.1       SpadeR_0.1.1       
+    #>  [4] usethis_2.2.3       ggplot2_3.5.2       SpadeR_0.1.1       
     #>  [7] iNEXT_3.0.1         dismo_1.3-16        raster_3.6-26      
     #> [10] sp_2.1-4            adespatial_0.3-23   indicspecies_1.7.14
     #> [13] cluster_2.1.6       vegan_2.6-6.1       lattice_0.22-6     
@@ -2433,7 +2606,7 @@ sessionInfo()
     #>  [82] stringr_1.5.1       later_1.4.1         splines_4.4.0      
     #>  [85] dplyr_1.1.4         deldir_2.0-4        tidyselect_1.2.1   
     #>  [88] miniUI_0.1.1.1      knitr_1.47          bookdown_0.39      
-    #>  [91] xfun_0.44           stringi_1.8.4       yaml_2.3.10        
+    #>  [91] xfun_0.53           stringi_1.8.4       yaml_2.3.10        
     #>  [94] boot_1.3-30         evaluate_0.24.0     codetools_0.2-20   
     #>  [97] interp_1.1-6        tibble_3.2.1        cli_3.6.3          
     #> [100] geometry_0.4.7      xtable_1.8-4        munsell_0.5.1      
